@@ -24,6 +24,23 @@
                     </div>
                     
                     <div class="form-group">
+                        <label for="department">Department:</label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="operations">Operations</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="construction">Construction</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="mechanical">Mechanical</option>
+                            <option value="plumbing">Plumbing</option>
+                            <option value="safety">Safety</option>
+                            <option value="management">Management</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
                         <label for="validityFrom">Validity From (Calendar):</label>
                         <input type="date" id="validityFrom" required>
                     </div>
@@ -167,6 +184,7 @@
                         <thead>
                             <tr>
                                 <th>Permit #</th>
+                                <th>Department</th>
                                 <th>Validity From</th>
                                 <th>Validity Till</th>
                                 <th>Risk Level</th>
@@ -183,16 +201,84 @@
                         </thead>
                         <tbody id="ptwBody">
                             <tr class="empty-state">
-                                <td colspan="13">No permits found. Create a new permit to work to get started.</td>
+                                <td colspan="14">No permits found. Create a new permit to work to get started.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <!-- Statistics -->
+            <!-- Daily Statistics -->
             <section class="stats-section">
-                <h2>Statistics</h2>
+                <h2>Daily Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Daily PTW Issued</h3>
+                        <p id="dailyTotal" class="stat-value">0</p>
+                    </div>
+                </div>
+                <div class="department-stats">
+                    <h3>Permits by Department (Daily)</h3>
+                    <div id="dailyDepartmentStats" class="department-grid">
+                        <!-- Department stats will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Statistics -->
+            <section class="stats-section">
+                <h2>Weekly Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Weekly PTW Issued</h3>
+                        <p id="weeklyTotal" class="stat-value">0</p>
+                    </div>
+                </div>
+                <div class="department-stats">
+                    <h3>Permits by Department (Weekly)</h3>
+                    <div id="weeklyDepartmentStats" class="department-grid">
+                        <!-- Department stats will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monthly Statistics -->
+            <section class="stats-section">
+                <h2>Monthly Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Monthly PTW Issued</h3>
+                        <p id="monthlyTotal" class="stat-value">0</p>
+                    </div>
+                </div>
+                <div class="department-stats">
+                    <h3>Permits by Department (Monthly)</h3>
+                    <div id="monthlyDepartmentStats" class="department-grid">
+                        <!-- Department stats will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Yearly Statistics -->
+            <section class="stats-section">
+                <h2>Yearly Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Yearly PTW Issued</h3>
+                        <p id="yearlyTotal" class="stat-value">0</p>
+                    </div>
+                </div>
+                <div class="department-stats">
+                    <h3>Permits by Department (Yearly)</h3>
+                    <div id="yearlyDepartmentStats" class="department-grid">
+                        <!-- Department stats will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Risk Level Overview -->
+            <section class="stats-section">
+                <h2>Risk Level Overview</h2>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <h3>Total PTW</h3>
