@@ -3,68 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permit Tracking System</title>
+    <title>Permit to Work (PTW) System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🏗️ Permit Tracking System</h1>
-            <p>Manage and track building permits efficiently</p>
+            <h1>⚠️ Permit to Work (PTW) System</h1>
+            <p>Manage and track work permits with risk assessment</p>
         </header>
 
         <main>
-            <!-- Add Permit Form -->
+            <!-- Add PTW Form -->
             <section class="form-section">
-                <h2>Add New Permit</h2>
-                <form id="permitForm">
+                <h2>Create New Permit to Work</h2>
+                <form id="ptwForm">
                     <div class="form-group">
-                        <label for="permitNumber">Permit Number:</label>
-                        <input type="text" id="permitNumber" required>
+                        <label for="permitNumber">Permit Number (Manual):</label>
+                        <input type="text" id="permitNumber" placeholder="e.g., PTW-2026-001" required>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="projectName">Project Name:</label>
-                        <input type="text" id="projectName" required>
+                        <label for="validityFrom">Validity From (Calendar):</label>
+                        <input type="date" id="validityFrom" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="location">Location:</label>
-                        <input type="text" id="location" required>
+                        <label for="validityTill">Validity Till (Calendar):</label>
+                        <input type="date" id="validityTill" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="permitType">Permit Type:</label>
-                        <select id="permitType" required>
-                            <option value="">Select Type</option>
-                            <option value="building">Building Permit</option>
-                            <option value="electrical">Electrical Permit</option>
-                            <option value="plumbing">Plumbing Permit</option>
-                            <option value="mechanical">Mechanical Permit</option>
-                            <option value="demolition">Demolition Permit</option>
-                            <option value="other">Other</option>
+                        <label for="riskLevel">Risk Level:</label>
+                        <select id="riskLevel" required>
+                            <option value="">Select Risk Level</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
                         </select>
                     </div>
+
                     <div class="form-group">
-                        <label for="status">Status:</label>
-                        <select id="status" required>
+                        <label for="activities">Activities (Multiple Choice):</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="cold-work"> Cold Work
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="hot-work"> Hot Work
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="road-closure"> Road Closure
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="confined-space"> Confined Space
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="work-at-height"> Work at Height
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="scaffolding"> Scaffolding
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="excavation-piling"> Excavation/Piling
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="sheeting-work"> Sheeting Work
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="radiography"> Radiography
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="demolishing"> Demolishing
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="pressure-testing"> Pressure Testing
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="grit-blasting"> Grit Blasting/Painting
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="electrical-lototo"> Electrical/LOTOTO
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="lifting-operations"> Lifting Operations
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="activities" value="critical-lifting"> Critical Lifting
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location (Manual):</label>
+                        <input type="text" id="location" placeholder="e.g., Building A, Level 3" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectSite">Project Site (Manual):</label>
+                        <input type="text" id="projectSite" placeholder="e.g., Main Construction Site" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="holder">Holder (Manual):</label>
+                        <input type="text" id="holder" placeholder="Name of permit holder" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicant">Applicant (Manual):</label>
+                        <input type="text" id="applicant" placeholder="Name of applicant" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authoriser1">Authoriser-1 (Manual):</label>
+                        <input type="text" id="authoriser1" placeholder="Name of first authoriser" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authoriser2">Authoriser-2 (Manual):</label>
+                        <input type="text" id="authoriser2" placeholder="Name of second authoriser" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ptwFormStatus">PTW Form Submitted:</label>
+                        <select id="ptwFormStatus" required>
+                            <option value="">Select Status</option>
+                            <option value="done">Done</option>
                             <option value="pending">Pending</option>
-                            <option value="approved">Approved</option>
-                            <option value="in-progress">In Progress</option>
-                            <option value="completed">Completed</option>
-                            <option value="rejected">Rejected</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="issuedDate">Issued Date:</label>
-                        <input type="date" id="issuedDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="expirationDate">Expiration Date:</label>
-                        <input type="date" id="expirationDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contractor">Contractor Name:</label>
-                        <input type="text" id="contractor" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Add Permit</button>
+
+                    <button type="submit" class="btn-primary">Create Permit to Work</button>
                 </form>
             </section>
 
@@ -72,40 +142,48 @@
             <section class="search-section">
                 <h2>Search & Filter</h2>
                 <div class="search-controls">
-                    <input type="text" id="searchInput" placeholder="Search by permit number or project name..." class="search-box">
-                    <select id="filterStatus" class="filter-select">
-                        <option value="">All Status</option>
+                    <input type="text" id="searchInput" placeholder="Search by permit number or location..." class="search-box">
+                    <select id="filterRiskLevel" class="filter-select">
+                        <option value="">All Risk Levels</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                    <select id="filterPTWStatus" class="filter-select">
+                        <option value="">All PTW Status</option>
+                        <option value="done">Done</option>
                         <option value="pending">Pending</option>
-                        <option value="approved">Approved</option>
-                        <option value="in-progress">In Progress</option>
-                        <option value="completed">Completed</option>
-                        <option value="rejected">Rejected</option>
                     </select>
                     <button id="clearFilters" class="btn-secondary">Clear Filters</button>
                 </div>
             </section>
 
-            <!-- Permits Table -->
+            <!-- PTW Table -->
             <section class="table-section">
-                <h2>Active Permits</h2>
+                <h2>Active Permits to Work</h2>
                 <div class="table-responsive">
-                    <table id="permitsTable" class="permits-table">
+                    <table id="ptwTable" class="ptw-table">
                         <thead>
                             <tr>
                                 <th>Permit #</th>
-                                <th>Project Name</th>
+                                <th>Validity From</th>
+                                <th>Validity Till</th>
+                                <th>Risk Level</th>
+                                <th>Activities</th>
                                 <th>Location</th>
-                                <th>Type</th>
-                                <th>Status</th>
-                                <th>Issued Date</th>
-                                <th>Expiration Date</th>
-                                <th>Contractor</th>
+                                <th>Project Site</th>
+                                <th>Holder</th>
+                                <th>Applicant</th>
+                                <th>Authoriser-1</th>
+                                <th>Authoriser-2</th>
+                                <th>PTW Form</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="permitsBody">
+                        <tbody id="ptwBody">
                             <tr class="empty-state">
-                                <td colspan="9">No permits found. Add a new permit to get started.</td>
+                                <td colspan="13">No permits found. Create a new permit to work to get started.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -117,35 +195,35 @@
                 <h2>Statistics</h2>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <h3>Total Permits</h3>
-                        <p id="totalPermits" class="stat-value">0</p>
+                        <h3>Total PTW</h3>
+                        <p id="totalPTW" class="stat-value">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3>Pending</h3>
-                        <p id="pendingCount" class="stat-value">0</p>
+                        <h3>Low Risk</h3>
+                        <p id="lowRiskCount" class="stat-value">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3>Approved</h3>
-                        <p id="approvedCount" class="stat-value">0</p>
+                        <h3>Medium Risk</h3>
+                        <p id="mediumRiskCount" class="stat-value">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3>In Progress</h3>
-                        <p id="inProgressCount" class="stat-value">0</p>
+                        <h3>High Risk</h3>
+                        <p id="highRiskCount" class="stat-value">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3>Completed</h3>
-                        <p id="completedCount" class="stat-value">0</p>
+                        <h3>Critical Risk</h3>
+                        <p id="criticalRiskCount" class="stat-value">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3>Expired</h3>
-                        <p id="expiredCount" class="stat-value">0</p>
+                        <h3>Form Submitted</h3>
+                        <p id="formSubmittedCount" class="stat-value">0</p>
                     </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Permit Tracking System. All rights reserved.</p>
+            <p>&copy; 2026 Permit to Work System. All rights reserved.</p>
         </footer>
     </div>
 
