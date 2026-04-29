@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permit Tracking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏗️ Permit Tracking System</h1>
+            <p>Manage and track building permits efficiently</p>
+        </header>
+
+        <main>
+            <!-- Add Permit Form -->
+            <section class="form-section">
+                <h2>Add New Permit</h2>
+                <form id="permitForm">
+                    <div class="form-group">
+                        <label for="permitNumber">Permit Number:</label>
+                        <input type="text" id="permitNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectName">Project Name:</label>
+                        <input type="text" id="projectName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location:</label>
+                        <input type="text" id="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="permitType">Permit Type:</label>
+                        <select id="permitType" required>
+                            <option value="">Select Type</option>
+                            <option value="building">Building Permit</option>
+                            <option value="electrical">Electrical Permit</option>
+                            <option value="plumbing">Plumbing Permit</option>
+                            <option value="mechanical">Mechanical Permit</option>
+                            <option value="demolition">Demolition Permit</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id="status" required>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="issuedDate">Issued Date:</label>
+                        <input type="date" id="issuedDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expirationDate">Expiration Date:</label>
+                        <input type="date" id="expirationDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contractor">Contractor Name:</label>
+                        <input type="text" id="contractor" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Add Permit</button>
+                </form>
+            </section>
+
+            <!-- Search and Filter -->
+            <section class="search-section">
+                <h2>Search & Filter</h2>
+                <div class="search-controls">
+                    <input type="text" id="searchInput" placeholder="Search by permit number or project name..." class="search-box">
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <button id="clearFilters" class="btn-secondary">Clear Filters</button>
+                </div>
+            </section>
+
+            <!-- Permits Table -->
+            <section class="table-section">
+                <h2>Active Permits</h2>
+                <div class="table-responsive">
+                    <table id="permitsTable" class="permits-table">
+                        <thead>
+                            <tr>
+                                <th>Permit #</th>
+                                <th>Project Name</th>
+                                <th>Location</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Issued Date</th>
+                                <th>Expiration Date</th>
+                                <th>Contractor</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="permitsBody">
+                            <tr class="empty-state">
+                                <td colspan="9">No permits found. Add a new permit to get started.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="stats-section">
+                <h2>Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Permits</h3>
+                        <p id="totalPermits" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending</h3>
+                        <p id="pendingCount" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Approved</h3>
+                        <p id="approvedCount" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>In Progress</h3>
+                        <p id="inProgressCount" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completed</h3>
+                        <p id="completedCount" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Expired</h3>
+                        <p id="expiredCount" class="stat-value">0</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Permit Tracking System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
